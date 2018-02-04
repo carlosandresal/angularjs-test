@@ -1,10 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Hello text</title>
-</head>
-<body>
-	<h1>Hello text repo! I am thrilled about this course!</h1>
+<!doctype html>
+<html lang="en" ng-app="LunchCheck">
+  <head>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.6/angular.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <!--<link rel="stylesheet" href="styles/bootstrap.min.css">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+      .message { font-size: 1.3em; font-weight: bold; }
+    </style>
+  </head>
+<body >
+   <div class="container" ng-controller="LunchCheckController">
+     <h1 class="text-center display-2 my-5">Lunch Checker</h1>
+
+         <div class="form-group text-center">
+             <input id="lunch-menu" type="text"
+             ng-model="item"
+             placeholder="list comma separated dishes you usually have for lunch"
+             class="form-control my-5">
+             <p ng-if="contador == 0" class="text-info"> Please enter data first </p>
+             <p ng-if="contador > 0 && contador <= 3" class="text-success"> Enjoy! </p>
+             <p ng-if="contador > 3 " class="text-danger" > Too much!</p>
+         </div>
+         <div class="form-group text-center mt-5">
+             <button class="btn btn-default" ng-click="split()">Check If Too Much</button>
+         </div>
+         <div class="form-group message my-5">
+           <!-- Your message can go here. -->
+           <p class="text-center display-3"> {{contador}} </p>
+         </div>
+   </div>
+
 </body>
 </html>
